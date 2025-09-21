@@ -125,23 +125,77 @@ sudo systemctl restart wazuh-manager
 2. También puedes simular múltiples intentos de acceso desde una misma IP a diferentes usuarios.
 3. Verifica las alertas en el dashboard de Wazuh.
 
-### 3.5 Documentar y subir evidencias
+### Paso 1: Preparar la laptop Ubuntu
+1. **Instalar y habilitar SSH**:
+   - Abre una terminal en Ubuntu y ejecuta:
+     ```bash
+     sudo apt update
+     sudo apt install openssh-server
+     sudo systemctl enable ssh
+     sudo systemctl start ssh
+     ```
+   - Verifica que SSH esté funcionando:
+     ```bash
+     sudo systemctl status ssh
+     ```
 
-1. Captura pantallas de las alertas generadas.
-2. Guarda las imágenes en `lab-wazuh/images/lateral_movement/`.
-3. Actualiza el README.md con la descripción del caso de uso.
-4. Sube los cambios a GitHub:
-```bash
-git add .
-git commit -m "Implementación caso movimiento lateral"
-git push origin main
-```
+2. **Configurar el firewall**:
+   - Asegúrate de que el firewall permita conexiones SSH:
+     ```bash
+     sudo ufw allow ssh
+     ```
 
-## Evidencia
-- Capturas de pantalla de las alertas en el dashboard.
-- Archivos de reglas y scripts en el repositorio.
-- Commit en GitHub con los cambios.
+3. **Obtener la IP de Ubuntu**:
+   - Anota la IP de Ubuntu ejecutando:
+     ```bash
+     ip a
+     ```
+   - Busca la IP en la interfaz de red (por ejemplo, `eth0` o `wlan0`). Será algo como `192.168.1.x`.
 
----
+### Paso 2: Simular intentos de acceso SSH desde Windows
+1. **Abrir PowerShell en Windows**:
+   - Haz clic en Inicio, escribe "PowerShell" y ejecútalo como administrador.
 
-Una vez que hayas completado este paso, avísame para continuar con el tercer caso de uso.
+2. **Generar intentos fallidos de SSH**:
+   - En PowerShell, ejecuta el siguiente comando reemplazando `IP_UBUNTU` con la IP de tu Ubuntu:
+     ```powershell
+     $ipUbuntu = "IP_UBUNTU"
+     $attempts = 5
+     for ($i=1; $i -le $attempts; $i++) {
+         Write-Host "Intento $i de $attempts"
+         ssh usuario_inexistente@$ipUbuntu
+         Start-Sleep -Seconds 2
+     }
+     ```
+   - Esto intentará conectarse por SSH 5 veces con un usuario que no existe, generando eventos de fallo.
+
+### Paso 3: Verificar las alertas en Wazuh
+1. **Acceder al dashboard de Wazuh**:
+   - Abre tu navegador y ve a la URL del dashboard de Wazuh (por ejemplo, `https://IP_WAZUH_SERVER`).
+   - Inicia sesión con tus credenciales.
+
+2. **Buscar alertas de movimiento lateral**:
+   - En el menú lateral, ve a **Security Events**.
+   - Aplica los filtros:
+     - `rule.groups:lateral_movement`
+     - `rule.id:100202` (para intentos SSH fallidos)
+   - Deberías ver alertas con descripción "Multiple SSH failed login attempts from [IP]".
+
+### Paso 4: Verificar la respuesta automática (bloqueo de IP)
+1. **Comprobar el bloqueo en el servidor Wazuh**:
+   - En el servidor Wazuh (Ubuntu con Wazuh manager), ejecuta:
+     ```bash
+     sudo iptables -L -n -v | grep DROP
+     ```
+   - Deberías ver una regla que bloquea la IP de tu Windows.
+
+2. **Probar el bloqueo**:
+   - Desde tu Windows, intenta hacer ping al servidor Wazuh:
+     ```cmd
+     ping IP_WAZUH_SERVER
+     ```
+   - Si el bloqueo funcionó, el ping fallará.
+
+
+
+
