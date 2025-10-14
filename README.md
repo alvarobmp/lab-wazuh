@@ -14,3 +14,4 @@ Windows 10 home (Agente Wazuh + Sysmon).
 - **docs/**: Documentación del laboratorio
 - **configs/**: Archivos de configuración
 - **dashboards/**: Dashboards y visualizaciones
+- **evidencias/**: capturas de ejecucion de los cambios realizados en el server y agente.
