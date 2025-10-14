@@ -1,4 +1,4 @@
-# Fase 00 - Laboratorio Wazuh
+# Laboratorio Wazuh
 
 ## 1. Preparación del entorno
 
