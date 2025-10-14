@@ -9,6 +9,7 @@ Ubuntu Server 20.04 LTS (Servidor Wazuh manager + indexer + dashboard).
 
 Windows 10 home (Agente Wazuh + Sysmon).
 
+Se utilizo para buscar soluciones a errores en la implementacion como errores de la misma respuesta del prompt a **ChatGPT, DeepSeek y Claude.ai.**
 
 ## Estructura
 - **docs/**: Documentación del laboratorio
