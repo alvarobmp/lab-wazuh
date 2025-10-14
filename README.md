@@ -13,5 +13,4 @@ Windows 10 home (Agente Wazuh + Sysmon).
 ## Estructura
 - **docs/**: Documentación del laboratorio
 - **configs/**: Archivos de configuración
-- **scripts/**: Scripts auxiliares
 - **dashboards/**: Dashboards y visualizaciones
