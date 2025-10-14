@@ -159,7 +159,7 @@ sudo systemctl restart wazuh-manager
 2. **Generar intentos fallidos de SSH**:
    - En PowerShell, ejecuta el siguiente comando reemplazando `IP_UBUNTU` con la IP de tu Ubuntu:
      ```powershell
-$ipUbuntu = "IP_UBUNTU"; $attempts = 5; for ($i=1; $i -le $attempts; $i++) { Write-Host "Intento $i de $attempts"; Test-NetConnection -ComputerName $ipUbuntu -Port 22; Start-Sleep -Seconds 2 }
+     $ipUbuntu = "IP_UBUNTU"; $attempts = 5; for ($i=1; $i -le $attempts; $i++) { Write-Host "Intento $i de $attempts"; Test-                  NetConnection -ComputerName $ipUbuntu -Port 22; Start-Sleep -Seconds 2 }
 
      ```
    - Esto intentará conectarse por SSH 5 veces con un usuario que no existe, generando eventos de fallo.
