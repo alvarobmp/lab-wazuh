@@ -78,10 +78,7 @@
 -   Se organizaron en cuadrícula.
 -   Se guardó el dashboard para consultas futuras.
 
-### 8.5 - Exportación (opcional)
-
--   No se realizó ya que no era necesario en este laboratorio.
-
-------------------------------------------------------------------------
+### 8.5 - Exportación
+-----------------------------------------------------------------------
 
 ✅ **Estado de la fase 00**: completada con éxito del punto 1 al 8.
