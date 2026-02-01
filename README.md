@@ -16,9 +16,9 @@ Este proyecto es un laboratorio de infraestructura de seguridad implementado des
 ## 🏗️ Arquitectura & Tecnologías
 
 Servidor SIEM- Ubuntu Server 20.04 LTS
-       Wazuh Manager
-       Wazuh Indexer (OpenSearch)
-       Wazuh Dashboard
+       **Wazuh Manager
+       **Wazuh Indexer (OpenSearch)
+       **Wazuh Dashboard
 
 Agentes (Endpoints Monitoreados)
-       Windows 10 + Wazuh Agent + Sysmon
+       **Windows 10 + Wazuh Agent + Sysmon
