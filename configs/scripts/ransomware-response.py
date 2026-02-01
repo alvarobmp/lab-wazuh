@@ -4,7 +4,7 @@ import requests
 import subprocess
 import sys
 
-VT_API_KEY = "3e4c3ca07208976acab2e2cee63fbeba7bfd1ba6c53bf4a19a613436eeabe0ab"
+VT_API_KEY = "3e4c3ca07208976acab2e2cee63fbeba7bfd1ba6c53bf4a19a613436eeabe0a"b
 WAZUH_MANAGER = "localhost"
 
 def analyze_file(file_path):
