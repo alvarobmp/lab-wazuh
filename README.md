@@ -2,7 +2,8 @@
 
 Este proyecto es un laboratorio de infraestructura de seguridad implementado desde cero en hardware físico. Su objetivo es demostrar habilidades prácticas en el despliegue, configuración y operación de un **Stack SIEM (Wazuh)** para la monitorización proactiva, detección de amenazas y respuesta a incidentes, simulando un entorno de Security Operations Center (SOC).
 
-**🔗 Enlace al Caso de Estudio:** [Análisis de Incidente Simulado](./INCIDENTE_SIMULADO.md)
+**🔗 Enlace de Implementación de Wazuh manager, indexer y dahsboard, :** [Implementación](./docs/fase00.md)
+**🔗 Enlace al Caso de Estudio de ransomware:** [Análisis de Incidente Simulado](./docs/fase01.md)
 
 ## 🎯 Objetivos del Proyecto
 *   Dominar la arquitectura e implementación de un stack SIEM completo (Wazuh Manager, Indexer, Dashboard).
