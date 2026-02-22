@@ -6,6 +6,10 @@ Este proyecto es un laboratorio de infraestructura de seguridad implementado des
 
 **🔗 Enlace al Caso de Estudio de ransomware:** [Análisis de Incidente Simulado](./docs/fase01.md)
 
+**🔗 Enlace a la Guia técnica:** [Guía técnica](https://docs.google.com/document/d/1KyfFlBLtWp12uTAzH6rCvbW9NtEcqsY-N90rQfeKCMk/edit?usp=sharing)
+
+
+
 ## 🎯 Objetivos del Proyecto
 *   Dominar la arquitectura e implementación de un stack SIEM completo (Wazuh Manager, Indexer, Dashboard).
 *   Configurar y desplegar agentes multi-plataforma (Linux, Windows) para la recolección centralizada de logs.
